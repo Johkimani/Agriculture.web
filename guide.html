@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriTech Guide - Comprehensive Farming Information</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .guide-header {
+            height: 40vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/hero_bg_1777647714564.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 0 20px;
+        }
+        .guide-container {
+            max-width: 900px;
+            margin: -50px auto 80px;
+            background: white;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 10;
+        }
+        .guide-content h2 { margin-top: 40px; color: var(--primary-color); }
+        .guide-content p { line-height: 1.8; color: #444; margin-bottom: 20px; font-size: 1.1rem; }
+        .guide-content img { width: 100%; border-radius: 12px; margin: 30px 0; }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .author-box {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        [data-theme="dark"] .guide-container {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+        }
+        [data-theme="dark"] .guide-content p {
+            color: #ccc;
+        }
+        [data-theme="dark"] .guide-content h2 {
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+<body class="guide-page">
+    <nav>
+        <a href="index.html" class="logo">AgriTech.</a>
+        <div class="nav-links">
+            <a href="index.html#home">Home</a>
+            <a href="index.html#equipment">Equipment</a>
+            <a href="finance.html">Finance</a>
+            <a href="index.html#blog">Blog</a>
+        </div>
+        <button id="theme-toggle" style="background:none; border:none; font-size:1.5rem; cursor:pointer; margin-left:20px;">🌙</button>
+    </nav>
+
+    <header class="guide-header">
+        <div class="hero-content">
+            <h1 id="guide-title">Loading Guide...</h1>
+            <p id="guide-subtitle">Expert agricultural knowledge at your fingertips.</p>
+        </div>
+    </header>
+
+    <main class="guide-container">
+        <a href="index.html#blog" class="back-link">&larr; Back to Knowledge Hub</a>
+        
+        <div class="author-box">
+            <img src="https://ui-avatars.com/api/?name=Dr.+Jane+W&background=4CAF50&color=fff" style="width: 50px; height: 50px; border-radius: 50%;">
+            <div>
+                <h4 style="margin: 0;">Dr. Jane Wangari</h4>
+                <p style="margin: 0; font-size: 0.85rem; color: #888;">Agricultural Specialist • 12 Min Read</p>
+            </div>
+        </div>
+
+        <article class="guide-content" id="guide-body">
+            <!-- Content will be injected by JavaScript -->
+            <p>Gathering the latest information for you...</p>
+        </article>
+
+        <section style="margin-top: 60px; padding-top: 40px; border-top: 1px solid #eee;">
+            <h3>Related Guides</h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+                <a href="guide.html?id=irrigation" style="text-decoration: none; color: inherit;">
+                    <div style="padding: 15px; border: 1px solid #eee; border-radius: 8px;">
+                        <h4 style="margin: 0; color: var(--primary-color);">Modern Irrigation</h4>
+                        <p style="margin: 5px 0 0; font-size: 0.8rem; color: #666;">Save water, grow more.</p>
+                    </div>
+                </a>
+                <a href="guide.html?id=rainy-season" style="text-decoration: none; color: inherit;">
+                    <div style="padding: 15px; border: 1px solid #eee; border-radius: 8px;">
+                        <h4 style="margin: 0; color: var(--primary-color);">Rainy Season Tips</h4>
+                        <p style="margin: 5px 0 0; font-size: 0.8rem; color: #666;">Maximize the long rains.</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer style="text-align: center; padding: 40px; background: #f9f9f9; border-top: 1px solid #eee;">
+        <p>&copy; 2026 | Ministry of Agriculture and Livestock Development</p>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        // Content Database
+        const guideData = {
+            'crop-diseases': {
+                title: 'How to Prevent Crop Diseases',
+                subtitle: 'Early detection and sustainable prevention strategies.',
+                body: `
+                    <p>Crop diseases can wipe out an entire season's hard work in just days. Understanding how to prevent them naturally is the hallmark of a modern, successful farmer.</p>
+                    <h2>1. Soil Health is Foundation</h2>
+                    <p>Most diseases start in the soil. By using organic compost and ensuring proper drainage, you create an environment where beneficial microbes outcompete harmful pathogens.</p>
+                    <img src="images/irrigation.png" alt="Healthy Soil">
+                    <h2>2. Crop Rotation</h2>
+                    <p>Never plant the same family of crops in the same spot two seasons in a row. For example, if you planted tomatoes (Solanaceae), follow them with beans (Legumes) to break the life cycle of pests.</p>
+                    <h2>3. Early Warning Signs</h2>
+                    <p>Inspect your crops daily. Look for yellowing leaves, unusual spots, or stunted growth. Identifying a problem early can save the rest of your field.</p>
+                `
+            },
+            'rainy-season': {
+                title: 'Best Crops for Rainy Season in Kenya',
+                subtitle: 'Maximize the "Long Rains" (March-May) for high returns.',
+                body: `
+                    <p>The rainy season is the most critical time for Kenyan agriculture. Choosing the right seed varieties can be the difference between a bumper harvest and a failed season.</p>
+                    <h2>1. Hybrid Maize Varieties</h2>
+                    <p>For high-altitude areas like the Rift Valley, H6213 or H6210 varieties are excellent. They are resistant to leaf rust and can handle high moisture.</p>
+                    <h2>2. Legumes for Nitrogen Fixation</h2>
+                    <p>Intercropping maize with beans (Rosecoco or Mwitemania) not only provides a second harvest but also improves soil nitrogen naturally during the rains.</p>
+                    <img src="images/hero_bg_1777647714564.png" alt="Rainy Season Farm">
+                    <h2>3. Water Management</h2>
+                    <p>Even in the rainy season, drainage is key. Ensure your fields have proper contours to prevent waterlogging, which can lead to root rot.</p>
+                `
+            },
+            'irrigation': {
+                title: 'Modern Irrigation Techniques',
+                subtitle: 'Smarter water usage for year-round profitability.',
+                body: `
+                    <p>In a changing climate, relying solely on rain is risky. Modern irrigation allows you to farm 365 days a year, doubling or even tripling your annual income.</p>
+                    <h2>1. Drip Irrigation</h2>
+                    <p>This is the most efficient method. It delivers water directly to the root zone, reducing evaporation and weed growth. It uses up to 60% less water than traditional flood irrigation.</p>
+                    <img src="images/irrigation.png" alt="Drip Irrigation">
+                    <h2>2. Smart Sensors</h2>
+                    <p>Using simple soil moisture sensors (available through our tech partners) can tell you exactly when to turn on the water, preventing both underwatering and overwatering.</p>
+                    <h2>3. Solar-Powered Pumps</h2>
+                    <p>Reduce your overhead costs by switching to solar pumps. Once installed, your water delivery costs drop to almost zero.</p>
+                `
+            }
+        };
+
+        // Load Content
+        const urlParams = new URLSearchParams(window.location.search);
+        const guideId = urlParams.get('id') || 'crop-diseases';
+        const guide = guideData[guideId] || guideData['crop-diseases'];
+
+        document.getElementById('guide-title').innerText = guide.title;
+        document.getElementById('guide-subtitle').innerText = guide.subtitle;
+        document.getElementById('guide-body').innerHTML = guide.body;
+        document.title = `${guide.title} - AgriTech Guide`;
+    </script>
+</body>
+</html>

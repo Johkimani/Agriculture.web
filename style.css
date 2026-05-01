@@ -1031,6 +1031,12 @@ body {
 [data-theme="dark"] .farmer-voice-card p {
     color: #ccc !important;
 }
+[data-theme="dark"] .farmer-voice-card h4 {
+    color: var(--accent-color) !important;
+}
+[data-theme="dark"] .farmer-voice-card span {
+    color: #888 !important;
+}
 
 /* Blog Filters & Search */
 .blog-filters input:focus {
