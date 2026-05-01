@@ -143,14 +143,14 @@ document.addEventListener("DOMContentLoaded", () => {
             const currentProfitEl = document.getElementById('current-profit');
             const newProfitEl = document.getElementById('new-profit');
 
-            // Baseline profit per acre = $500
-            const baselineProfit = acreage * 500;
+            // Baseline profit per acre = Ksh 65,000
+            const baselineProfit = acreage * 65000;
             let profitIncrease = 0;
 
             if (equipType === 'tractor') {
                 profitIncrease = baselineProfit * 0.15;
             } else if (equipType === 'irrigation') {
-                profitIncrease = (baselineProfit * 0.20) + (acreage * 50); 
+                profitIncrease = (baselineProfit * 0.20) + (acreage * 6500); 
             } else if (equipType === 'harvester') {
                 profitIncrease = baselineProfit * 0.10;
             }
@@ -160,8 +160,8 @@ document.addEventListener("DOMContentLoaded", () => {
             resultDiv.style.display = 'block';
             resultDiv.style.animation = 'slideUp 0.5s ease-out';
             
-            currentProfitEl.innerText = `$${Math.round(baselineProfit).toLocaleString()}`;
-            newProfitEl.innerText = `$${Math.round(totalNewProfit).toLocaleString()}`;
+            currentProfitEl.innerText = `Ksh ${Math.round(baselineProfit).toLocaleString()}`;
+            newProfitEl.innerText = `Ksh ${Math.round(totalNewProfit).toLocaleString()}`;
 
             let start = 0;
             const duration = 1000;
@@ -174,9 +174,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 start += step;
                 if (start >= profitIncrease) {
                     clearInterval(window.roiInterval);
-                    resultText.innerText = `+$${Math.round(profitIncrease).toLocaleString()}`;
+                    resultText.innerText = `+Ksh ${Math.round(profitIncrease).toLocaleString()}`;
                 } else {
-                    resultText.innerText = `+$${Math.round(start).toLocaleString()}`;
+                    resultText.innerText = `+Ksh ${Math.round(start).toLocaleString()}`;
                 }
             }, interval);
         });
@@ -352,16 +352,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (organic === 'yes') {
                 recommendation = "Organic Farming Incentive";
-                amount = "Up to $10,000 Subsidy";
+                amount = "Up to Ksh 1,300,000 Subsidy";
             } else if (goal === 'equipment') {
                 recommendation = "Tech Adoption Fund";
                 amount = "Up to 50% Co-financing";
             } else if (size === 'large' || goal === 'expansion') {
                 recommendation = "Agriculture Loan Assistance";
-                amount = "Low-Interest Loan (Up to $50,000)";
+                amount = "Low-Interest Loan (Up to Ksh 6,500,000)";
             } else {
                 recommendation = "Farm Subsidy Grant";
-                amount = "Up to $5,000 Grant";
+                amount = "Up to Ksh 650,000 Grant";
             }
 
             quizResult.style.display = 'block';

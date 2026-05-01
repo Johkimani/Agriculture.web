@@ -888,3 +888,12 @@ body {
 [data-theme="dark"] footer p {
     color: #e0e0e0 !important;
 }
+
+/* Lease cards in dark mode */
+[data-theme="dark"] .lease-card {
+    background-color: #1e1e1e !important;
+    border-color: #333 !important;
+}
+[data-theme="dark"] .lease-card h4 {
+    color: var(--primary-color) !important;
+}

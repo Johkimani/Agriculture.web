@@ -61,7 +61,7 @@
             <p>Farmers Assisted</p>
         </div>
         <div class="stat-item fade-in">
-            <h2>$<span class="counter" data-target="1.5">0</span>B</h2>
+            <h2>Ksh <span class="counter" data-target="200">0</span>B</h2>
             <p>in Subsidies</p>
         </div>
         <div class="stat-item fade-in">
@@ -97,12 +97,38 @@
         </div>
     </div>
     
-    <div class="leasing-banner fade-in" style="background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 12px; padding: 40px; margin-top: 50px; color: white; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
-        <div style="max-width: 600px;">
-            <h3 style="font-size: 1.8rem; margin-bottom: 10px; color: white;">Equipment Leasing Hub</h3>
-            <p style="opacity: 0.9; line-height: 1.5;">Can't afford to buy right now? We offer subsidized daily rentals for small-scale farmers. Rent a high-tech tractor for as low as $50/day during peak planting season.</p>
+    <div class="leasing-hub fade-in" style="margin-top: 60px; padding-top: 40px; border-top: 2px dashed #ccc;">
+        <div style="text-align: center; margin-bottom: 30px;">
+            <h3 style="font-size: 2rem; color: var(--primary-color);">Equipment Leasing Hub</h3>
+            <p style="color: #666; max-width: 600px; margin: 10px auto;">Can't afford to buy right now? We offer subsidized daily rentals for small-scale farmers to boost productivity.</p>
         </div>
-        <a href="#contact" class="cta-button" style="background-color: var(--accent-color); color: var(--dark-color); white-space: nowrap;">Request a Rental</a>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+            <div class="lease-card" style="background: white; border-radius: 12px; padding: 20px; text-align: center; border: 1px solid #eee; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                <div style="font-size: 3rem; margin-bottom: 10px;">🚜</div>
+                <h4 style="font-size: 1.2rem; margin-bottom: 5px;">Basic Tractor</h4>
+                <p style="color: var(--accent-color); font-weight: bold; font-size: 1.1rem; margin-bottom: 15px;">Ksh 5,500 / Day</p>
+                <p style="font-size: 0.9rem; color: #666; margin-bottom: 20px;">Perfect for tilling up to 10 acres. Includes basic implements.</p>
+                <a href="#contact" class="cta-button" style="display: block; padding: 10px; font-size: 0.95rem;">Lease Now</a>
+            </div>
+            
+            <div class="lease-card" style="background: white; border-radius: 12px; padding: 20px; text-align: center; border: 1px solid #eee; box-shadow: 0 4px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden;">
+                <div style="position: absolute; top: 15px; right: -30px; background: var(--accent-color); color: var(--dark-color); font-size: 0.7rem; font-weight: bold; padding: 5px 30px; transform: rotate(45deg);">POPULAR</div>
+                <div style="font-size: 3rem; margin-bottom: 10px;">🌾</div>
+                <h4 style="font-size: 1.2rem; margin-bottom: 5px;">Combine Harvester</h4>
+                <p style="color: var(--accent-color); font-weight: bold; font-size: 1.1rem; margin-bottom: 15px;">Ksh 12,000 / Day</p>
+                <p style="font-size: 0.9rem; color: #666; margin-bottom: 20px;">Fast harvest with minimal grain loss. Best for maize & wheat.</p>
+                <a href="#contact" class="cta-button" style="display: block; padding: 10px; font-size: 0.95rem;">Lease Now</a>
+            </div>
+            
+            <div class="lease-card" style="background: white; border-radius: 12px; padding: 20px; text-align: center; border: 1px solid #eee; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                <div style="font-size: 3rem; margin-bottom: 10px;">💧</div>
+                <h4 style="font-size: 1.2rem; margin-bottom: 5px;">Portable Water Pump</h4>
+                <p style="color: var(--accent-color); font-weight: bold; font-size: 1.1rem; margin-bottom: 15px;">Ksh 1,500 / Day</p>
+                <p style="font-size: 0.9rem; color: #666; margin-bottom: 20px;">High-pressure diesel pump for small-scale irrigation.</p>
+                <a href="#contact" class="cta-button" style="display: block; padding: 10px; font-size: 0.95rem;">Lease Now</a>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -134,15 +160,15 @@
         
         <div class="calc-result" id="calc-result" style="display: none; background: white; color: var(--dark-color); padding: 30px; border-radius: 12px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
             <h3 style="color: #555; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px;">Your Estimated Extra Income</h3>
-            <p class="result-highlight" id="result-text" style="font-size: 4rem; color: var(--primary-color); margin: 10px 0;">+$0</p>
+            <p class="result-highlight" id="result-text" style="font-size: 4rem; color: var(--primary-color); margin: 10px 0;">+Ksh 0</p>
             <div style="display: flex; justify-content: space-between; margin-top: 20px; padding-top: 20px; border-top: 1px solid #eee;">
                 <div>
                     <p style="font-size: 0.8rem; color: #888;">Current Est. Profit</p>
-                    <strong id="current-profit" style="font-size: 1.1rem;">$0</strong>
+                    <strong id="current-profit" style="font-size: 1.1rem;">Ksh 0</strong>
                 </div>
                 <div>
                     <p style="font-size: 0.8rem; color: #888;">New Est. Profit</p>
-                    <strong id="new-profit" style="font-size: 1.1rem; color: var(--primary-color);">+$0</strong>
+                    <strong id="new-profit" style="font-size: 1.1rem; color: var(--primary-color);">+Ksh 0</strong>
                 </div>
             </div>
         </div>
