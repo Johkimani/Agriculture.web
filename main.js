@@ -444,6 +444,48 @@ document.addEventListener("DOMContentLoaded", () => {
     const leaseModal = document.getElementById('lease-modal');
     const closeLeaseModal = document.getElementById('close-modal');
     const leaseNowBtns = document.querySelectorAll('.lease-now-btn');
+    
+    // Reset checkboxes
+    document.querySelectorAll('.lease-checkbox').forEach(cb => cb.checked = false);
+
+    // 13. Blog Search and Filtering
+    const blogSearch = document.getElementById('blog-search');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const blogCards = document.querySelectorAll('.blog-card');
+
+    function filterBlog() {
+        const searchTerm = blogSearch ? blogSearch.value.toLowerCase() : '';
+        const activeBtn = document.querySelector('.filter-btn.active');
+        const activeCategory = activeBtn ? activeBtn.dataset.category : 'all';
+
+        blogCards.forEach(card => {
+            const title = card.querySelector('h3').textContent.toLowerCase();
+            const text = card.querySelector('p').textContent.toLowerCase();
+            const category = card.dataset.category;
+
+            const matchesSearch = title.includes(searchTerm) || text.includes(searchTerm);
+            const matchesCategory = activeCategory === 'all' || category === activeCategory;
+
+            if (matchesSearch && matchesCategory) {
+                card.style.display = 'block';
+                card.classList.add('fade-in');
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+
+    if (blogSearch) {
+        blogSearch.addEventListener('input', filterBlog);
+    }
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            filterBlog();
+        });
+    });
     const leaseCheckboxes = document.querySelectorAll('.lease-checkbox');
     const leaseDaysInput = document.getElementById('lease-days');
     const leaseTotalEl = document.getElementById('lease-total');
