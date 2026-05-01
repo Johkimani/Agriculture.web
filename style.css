@@ -769,6 +769,14 @@ tr:hover {
     background-color: var(--light-color);
 }
 
+[data-theme="dark"] p,
+[data-theme="dark"] span:not(.blog-tag):not(.crop-tag),
+[data-theme="dark"] label,
+[data-theme="dark"] td,
+[data-theme="dark"] th {
+    color: #e0e0e0 !important;
+}
+
 [data-theme="dark"] .stats-section,
 [data-theme="dark"] .equipment-card,
 [data-theme="dark"] .market-dashboard,
@@ -833,10 +841,42 @@ tr:hover {
     border-bottom: 1px solid #333 !important;
 }
 
-[data-theme="dark"] .goog-te-gadget-simple {
-    background-color: #2a2a2a !important;
-    border: 1px solid #444 !important;
+[data-theme="dark"] .result-highlight {
+    color: var(--accent-color) !important;
 }
-[data-theme="dark"] .goog-te-gadget-simple .goog-te-menu-value span {
-    color: #e0e0e0 !important;
+
+/* Google Translate Professional Styling */
+.goog-te-combo {
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    cursor: pointer;
+    outline: none;
+    transition: 0.3s;
+}
+.goog-te-combo:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-color: var(--accent-color);
+}
+.goog-te-combo option {
+    background-color: var(--dark-color);
+    color: white;
+}
+/* Hide Google Translate branding */
+.goog-logo-link {
+    display: none !important;
+}
+.goog-te-gadget {
+    color: transparent !important;
+    font-size: 0 !important;
+}
+.goog-te-banner-frame.skiptranslate {
+    display: none !important;
+}
+body {
+    top: 0px !important; 
 }
