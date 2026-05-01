@@ -248,62 +248,92 @@ document.addEventListener("DOMContentLoaded", () => {
     const advisorData = {
         highlands: {
             "mar-may": [
-                { name: "Maize (High Altitude)", icon: "🌽", days: "150-180 Days", soil: "Well-drained loam", desc: "Plant early. Excellent for commercial and subsistence." },
-                { name: "Irish Potatoes", icon: "🥔", days: "90-120 Days", soil: "Loose, well-drained", desc: "High yield potential. Needs regular fungicide application." }
+                { name: "Maize (High Altitude)", icon: "🌽", days: "150-180 Days", soil: "Well-drained loam", desc: "Plant early. Excellent for commercial and subsistence.", yield: 30, price: 3200, unit: "Bags" },
+                { name: "Irish Potatoes", icon: "🥔", days: "90-120 Days", soil: "Loose, well-drained", desc: "High yield potential. Needs regular fungicide application.", yield: 80, price: 4500, unit: "Bags" }
             ],
             "oct-dec": [
-                { name: "Beans", icon: "🫘", days: "60-90 Days", soil: "Loam", desc: "Fast-maturing, perfect for short rains." },
-                { name: "Cabbages", icon: "🥬", days: "90-100 Days", soil: "High organic matter", desc: "Good market prices during January/February." }
+                { name: "Beans", icon: "🫘", days: "60-90 Days", soil: "Loam", desc: "Fast-maturing, perfect for short rains.", yield: 15, price: 8000, unit: "Bags" },
+                { name: "Cabbages", icon: "🥬", days: "90-100 Days", soil: "High organic matter", desc: "Good market prices during January/February.", yield: 15000, price: 50, unit: "Heads" }
             ],
             "dry": [
-                { name: "Tomatoes (Greenhouse)", icon: "🍅", days: "75-90 Days", soil: "Rich loam", desc: "Requires irrigation/greenhouse, but prices peak." }
+                { name: "Tomatoes (Greenhouse)", icon: "🍅", days: "75-90 Days", soil: "Rich loam", desc: "Requires irrigation/greenhouse, but prices peak.", yield: 20, price: 6800, unit: "Crates" }
             ]
         },
         rift: {
             "mar-may": [
-                { name: "Wheat", icon: "🌾", days: "120-150 Days", soil: "Deep loam", desc: "Large scale commercial farming. Very profitable." },
-                { name: "Maize (Hybrid)", icon: "🌽", days: "130-150 Days", soil: "Well-drained", desc: "Staple crop. Use certified seeds for high yield." }
+                { name: "Wheat", icon: "🌾", days: "120-150 Days", soil: "Deep loam", desc: "Large scale commercial farming. Very profitable.", yield: 25, price: 4000, unit: "Bags" },
+                { name: "Maize (Hybrid)", icon: "🌽", days: "130-150 Days", soil: "Well-drained", desc: "Staple crop. Use certified seeds for high yield.", yield: 35, price: 3200, unit: "Bags" }
             ],
             "oct-dec": [
-                { name: "Garden Peas", icon: "🫛", days: "60-70 Days", soil: "Loam", desc: "Excellent cash crop during short rains." }
+                { name: "Garden Peas", icon: "🫛", days: "60-70 Days", soil: "Loam", desc: "Excellent cash crop during short rains.", yield: 20, price: 5000, unit: "Bags" }
             ],
             "dry": [
-                { name: "Onions", icon: "🧅", days: "120-150 Days", soil: "Sandy loam", desc: "Requires irrigation. Extremely lucrative off-season." }
+                { name: "Onions", icon: "🧅", days: "120-150 Days", soil: "Sandy loam", desc: "Requires irrigation. Extremely lucrative off-season.", yield: 15, price: 6000, unit: "Nets" }
             ]
         },
         coast: {
             "mar-may": [
-                { name: "Cassava", icon: "🍠", days: "180-360 Days", soil: "Sandy", desc: "Drought resistant and highly adapted to coastal soils." },
-                { name: "Green Grams (Ndengu)", icon: "🟢", days: "60-70 Days", soil: "Well-drained sandy", desc: "Fast maturing, good price per kg." }
+                { name: "Cassava", icon: "🍠", days: "180-360 Days", soil: "Sandy", desc: "Drought resistant and highly adapted to coastal soils.", yield: 10, price: 20000, unit: "Tons" },
+                { name: "Green Grams (Ndengu)", icon: "🟢", days: "60-70 Days", soil: "Well-drained sandy", desc: "Fast maturing, good price per kg.", yield: 10, price: 9000, unit: "Bags" }
             ],
             "oct-dec": [
-                { name: "Cowpeas", icon: "🌱", days: "60-80 Days", soil: "Sandy loam", desc: "Grown for both leaves (mboga) and seeds." }
+                { name: "Cowpeas", icon: "🌱", days: "60-80 Days", soil: "Sandy loam", desc: "Grown for both leaves (mboga) and seeds.", yield: 8, price: 8500, unit: "Bags" }
             ],
             "dry": [
-                { name: "Watermelons", icon: "🍉", days: "80-100 Days", soil: "Sandy, well-drained", desc: "Needs irrigation, but thrives in coastal heat." }
+                { name: "Watermelons", icon: "🍉", days: "80-100 Days", soil: "Sandy, well-drained", desc: "Needs irrigation, but thrives in coastal heat.", yield: 15, price: 30000, unit: "Tons" }
             ]
         },
         lake: {
             "mar-may": [
-                { name: "Sorghum", icon: "🌾", days: "90-120 Days", soil: "Clay loam", desc: "Bird-resistant varieties recommended. Excellent brewer market." },
-                { name: "Rice (Paddy)", icon: "🍚", days: "120-150 Days", soil: "Heavy clay", desc: "Requires flooded conditions. Very high demand." }
+                { name: "Sorghum", icon: "🌾", days: "90-120 Days", soil: "Clay loam", desc: "Bird-resistant varieties recommended. Excellent brewer market.", yield: 20, price: 3500, unit: "Bags" },
+                { name: "Rice (Paddy)", icon: "🍚", days: "120-150 Days", soil: "Heavy clay", desc: "Requires flooded conditions. Very high demand.", yield: 30, price: 6000, unit: "Bags" }
             ],
             "oct-dec": [
-                { name: "Groundnuts", icon: "🥜", days: "100-120 Days", soil: "Loose sandy loam", desc: "High value crop. Avoid waterlogged soils." }
+                { name: "Groundnuts", icon: "🥜", days: "100-120 Days", soil: "Loose sandy loam", desc: "High value crop. Avoid waterlogged soils.", yield: 12, price: 12000, unit: "Bags" }
             ],
             "dry": [
-                { name: "Sweet Potatoes", icon: "🍠", days: "90-120 Days", soil: "Sandy loam", desc: "Drought tolerant. Vines can be used for fodder." }
+                { name: "Sweet Potatoes", icon: "🍠", days: "90-120 Days", soil: "Sandy loam", desc: "Drought tolerant. Vines can be used for fodder.", yield: 8, price: 25000, unit: "Tons" }
             ]
         }
     };
 
+    const weatherData = {
+        highlands: { temp: "22°C", desc: "Partly Cloudy", icon: "⛅", rain: "5mm", hum: "65%", name: "Central Highlands" },
+        rift: { temp: "26°C", desc: "Light Rain", icon: "🌧️", rain: "12mm", hum: "70%", name: "Rift Valley" },
+        coast: { temp: "31°C", desc: "Sunny", icon: "☀️", rain: "0mm", hum: "85%", name: "Coastal Region" },
+        lake: { temp: "28°C", desc: "Thunderstorms", icon: "⛈️", rain: "20mm", hum: "80%", name: "Lake Basin" }
+    };
+
+    function updateWeather(region) {
+        const w = weatherData[region];
+        if(!w) return;
+        const tempEl = document.getElementById('weather-temp');
+        if(tempEl) {
+            tempEl.innerText = w.temp;
+            document.getElementById('weather-desc').innerText = w.desc;
+            document.getElementById('weather-icon').innerText = w.icon;
+            document.getElementById('weather-rain').innerText = `💧 ${w.rain} Rain`;
+            document.getElementById('weather-humidity').innerText = `🌫️ ${w.hum} Humidity`;
+            document.getElementById('weather-location-label').innerText = w.name;
+        }
+    }
+
     const adviseBtn = document.getElementById('advise-btn');
     const advisorResults = document.getElementById('advisor-results');
+    const advisorRegionSelect = document.getElementById('advisor-region');
+
+    if (advisorRegionSelect) {
+        updateWeather(advisorRegionSelect.value);
+        advisorRegionSelect.addEventListener('change', (e) => {
+            updateWeather(e.target.value);
+        });
+    }
 
     if (adviseBtn) {
         adviseBtn.addEventListener('click', () => {
             const region = document.getElementById('advisor-region').value;
             const season = document.getElementById('advisor-month').value;
+            const acres = parseFloat(document.getElementById('advisor-acres').value) || 1;
             
             const recommendations = advisorData[region][season];
             
@@ -318,6 +348,8 @@ document.addEventListener("DOMContentLoaded", () => {
             let htmlStr = `<h3 style="margin-bottom:20px; color:var(--primary-color);">Top Recommendations:</h3>`;
             
             recommendations.forEach(crop => {
+                const estYield = crop.yield * acres;
+                const estRev = estYield * crop.price;
                 htmlStr += `
                     <div class="crop-recommendation">
                         <div class="crop-icon">${crop.icon}</div>
@@ -327,6 +359,12 @@ document.addEventListener("DOMContentLoaded", () => {
                             <div class="crop-tags">
                                 <span class="crop-tag">⏱ ${crop.days}</span>
                                 <span class="crop-tag">🌱 ${crop.soil}</span>
+                            </div>
+                            <div style="margin-top: 15px; padding: 10px; background: rgba(76, 175, 80, 0.1); border-radius: 8px;">
+                                <div style="display: flex; justify-content: space-between; font-size: 0.9rem;">
+                                    <span>Est. Yield: <strong>${estYield.toLocaleString()} ${crop.unit}</strong></span>
+                                    <span>Est. Revenue: <strong style="color:var(--primary-color);">Ksh ${estRev.toLocaleString()}</strong></span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -477,6 +515,42 @@ document.addEventListener("DOMContentLoaded", () => {
         // Recalculate on input change
         leaseCheckboxes.forEach(cb => cb.addEventListener('change', calculateLeaseTotal));
         leaseDaysInput.addEventListener('input', calculateLeaseTotal);
+    }
+
+    // Success Modal Logic
+    function showSuccessModal(msg) {
+        const msgEl = document.getElementById('success-message');
+        const modalEl = document.getElementById('success-modal');
+        if(msgEl && modalEl) {
+            msgEl.innerText = msg;
+            modalEl.style.display = 'block';
+        }
+    }
+
+    const contactForm = document.querySelector('.contact-form');
+    if(contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button[type="submit"]');
+            const originalText = btn.innerText;
+            btn.innerText = "Sending...";
+            
+            // Simulate AJAX Request
+            setTimeout(() => {
+                showSuccessModal("Your message has been sent successfully. We will be in touch shortly!");
+                contactForm.reset();
+                btn.innerText = originalText;
+            }, 800);
+        });
+    }
+
+    const leaseForm = document.getElementById('lease-form');
+    if(leaseForm) {
+        leaseForm.onsubmit = function(e) {
+            e.preventDefault();
+            document.getElementById('close-modal').click();
+            showSuccessModal("Your equipment lease request is confirmed! A representative will call you shortly to finalize delivery.");
+        };
     }
 
     // 7. Scroll to Top Button

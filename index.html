@@ -236,30 +236,49 @@
     <h2 class="section-title">"What Should I Plant?" Advisor</h2>
     <p style="text-align: center; color: #666; margin-top: -40px; margin-bottom: 40px;">Select your region and current month to get expert planting recommendations.</p>
     
-    <div class="advisor-container fade-in">
-        <div class="advisor-controls">
-            <div class="form-group" style="margin-bottom: 0;">
-                <label for="advisor-region">Region</label>
-                <select id="advisor-region" class="market-select">
-                    <option value="highlands">Central Highlands (e.g., Kiambu, Nyeri)</option>
-                    <option value="rift">Rift Valley (e.g., Nakuru, Eldoret)</option>
-                    <option value="coast">Coastal Region (e.g., Mombasa, Kilifi)</option>
-                    <option value="lake">Lake Basin (e.g., Kisumu, Siaya)</option>
-                </select>
+    <div class="advisor-layout" style="display: flex; gap: 30px; flex-wrap: wrap;">
+        <!-- Weather Widget -->
+        <div class="weather-widget fade-in" style="flex: 1; min-width: 250px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 12px; padding: 30px; color: white; box-shadow: 0 10px 30px rgba(0,0,0,0.1); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+            <h3 style="font-size: 1.2rem; margin-bottom: 15px; opacity: 0.9;">Current Weather</h3>
+            <div id="weather-icon" style="font-size: 4rem; margin-bottom: 10px;">⛅</div>
+            <h2 id="weather-temp" style="font-size: 2.5rem; margin-bottom: 5px;">22°C</h2>
+            <p id="weather-desc" style="font-size: 1.1rem; font-weight: bold; margin-bottom: 15px;">Partly Cloudy</p>
+            <div style="display: flex; gap: 20px; font-size: 0.9rem; opacity: 0.9; background: rgba(0,0,0,0.2); padding: 10px 20px; border-radius: 20px;">
+                <span id="weather-rain">💧 5mm Rain</span>
+                <span id="weather-humidity">🌫️ 65% Humidity</span>
             </div>
-            <div class="form-group" style="margin-bottom: 0;">
-                <label for="advisor-month">Planting Month</label>
-                <select id="advisor-month" class="market-select">
-                    <option value="mar-may">Long Rains (Mar - May)</option>
-                    <option value="oct-dec">Short Rains (Oct - Dec)</option>
-                    <option value="dry">Dry Season (Jan-Feb / Jun-Sep)</option>
-                </select>
-            </div>
-            <button id="advise-btn" class="cta-button" style="align-self: flex-end; padding: 12px 24px;">Get Advice</button>
+            <p style="margin-top: 15px; font-size: 0.8rem; opacity: 0.8;">Live data for: <span id="weather-location-label" style="font-weight: bold;">Central Highlands</span></p>
         </div>
 
-        <div id="advisor-results" class="advisor-results" style="display: none;">
-            <!-- JS will populate this -->
+        <div class="advisor-container fade-in" style="flex: 2; min-width: 300px;">
+            <div class="advisor-controls" style="display: flex; flex-wrap: wrap; gap: 15px;">
+                <div class="form-group" style="flex: 1; margin-bottom: 0;">
+                    <label for="advisor-region">Region</label>
+                    <select id="advisor-region" class="market-select">
+                        <option value="highlands">Central Highlands</option>
+                        <option value="rift">Rift Valley</option>
+                        <option value="coast">Coastal Region</option>
+                        <option value="lake">Lake Basin</option>
+                    </select>
+                </div>
+                <div class="form-group" style="flex: 1; margin-bottom: 0;">
+                    <label for="advisor-month">Planting Month</label>
+                    <select id="advisor-month" class="market-select">
+                        <option value="mar-may">Long Rains (Mar-May)</option>
+                        <option value="oct-dec">Short Rains (Oct-Dec)</option>
+                        <option value="dry">Dry Season</option>
+                    </select>
+                </div>
+                <div class="form-group" style="flex: 1; margin-bottom: 0;">
+                    <label for="advisor-acres">Farm Size (Acres)</label>
+                    <input type="number" id="advisor-acres" min="1" value="5" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ccc; font-family: 'Inter', sans-serif;">
+                </div>
+                <button id="advise-btn" class="cta-button" style="flex: 1; min-width: 150px; padding: 12px 24px; align-self: flex-end;">Get Advice</button>
+            </div>
+
+            <div id="advisor-results" class="advisor-results" style="display: none; margin-top: 30px;">
+                <!-- JS will populate this -->
+            </div>
         </div>
     </div>
 </section>
@@ -390,6 +409,21 @@
 
             <button type="submit" class="cta-button" style="width: 100%; padding: 15px; font-size: 1.1rem; margin-top: 10px;">Submit Lease Request</button>
         </form>
+    </div>
+</div>
+
+<!-- Success Modal -->
+<div id="success-modal" class="modal">
+    <div class="modal-content fade-in" style="text-align: center; max-width: 400px; padding: 40px;">
+        <div class="success-animation">
+            <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+            </svg>
+        </div>
+        <h2 style="color: var(--primary-color); margin-top: 20px; margin-bottom: 10px;">Success!</h2>
+        <p id="success-message" style="color: #666; margin-bottom: 25px;">Your request has been submitted successfully.</p>
+        <button class="cta-button" onclick="document.getElementById('success-modal').style.display='none'" style="width: 100%;">Close</button>
     </div>
 </div>
 
