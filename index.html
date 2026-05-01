@@ -96,27 +96,43 @@
 
 <!-- Interactive ROI Calculator -->
 <section id="calculator" class="section" style="background-color: var(--primary-color); color: white;">
-    <h2 class="section-title" style="color: white;">Equipment ROI Estimator</h2>
-    <div class="calculator-container fade-in">
+    <h2 class="section-title" style="color: white;">Farm Profitability Estimator</h2>
+    <p style="text-align: center; color: #e0e0e0; margin-top: -40px; margin-bottom: 40px; font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto;">Move the slider to match your farm size, select an equipment upgrade, and discover your potential profit increase!</p>
+    
+    <div class="calculator-container fade-in" style="background: rgba(0, 0, 0, 0.2);">
         <div class="calc-input">
             <div class="form-group">
-                <label style="color: white;" for="acreage">Farm Size (Acres)</label>
-                <input type="number" id="acreage" placeholder="e.g. 50" min="1">
+                <label style="color: white; font-size: 1.2rem; display: flex; justify-content: space-between;" for="acreage">
+                    Farm Size
+                    <span id="acreage-val" style="color: var(--accent-color); font-weight: 800;">50 Acres</span>
+                </label>
+                <input type="range" id="acreage" min="1" max="500" value="50" style="width: 100%; cursor: pointer; accent-color: var(--accent-color);">
             </div>
-            <div class="form-group">
-                <label style="color: white;" for="equipment-type">Equipment Upgrade</label>
-                <select id="equipment-type" style="width: 100%; padding: 12px; border-radius: 8px; border: none; font-family: 'Inter', sans-serif;">
-                    <option value="tractor">High-Tech Tractor (15% yield increase)</option>
-                    <option value="irrigation">Pivot Irrigation (30% water savings & 20% yield)</option>
-                    <option value="harvester">Combine Harvester (10% less grain loss)</option>
+            
+            <div class="form-group" style="margin-top: 30px;">
+                <label style="color: white; font-size: 1.1rem;" for="equipment-type">Choose Equipment Upgrade</label>
+                <select id="equipment-type" style="width: 100%; padding: 15px; border-radius: 8px; border: 2px solid transparent; font-family: 'Inter', sans-serif; font-size: 1rem; cursor: pointer; transition: 0.3s;">
+                    <option value="tractor">🚜 High-Tech Tractor (Faster tilling, 15% yield boost)</option>
+                    <option value="irrigation">💧 Pivot Irrigation (Year-round farming, 20% yield boost)</option>
+                    <option value="harvester">🌾 Combine Harvester (Reduces grain loss by 10%)</option>
                 </select>
             </div>
-            <button id="calculate-btn" class="cta-button" style="width: 100%; margin-top: 10px; background-color: var(--accent-color); color: var(--dark-color);">Calculate Annual Profit Increase</button>
+            <button id="calculate-btn" class="cta-button" style="width: 100%; margin-top: 20px; background-color: var(--accent-color); color: var(--dark-color); font-size: 1.2rem; padding: 15px;">Calculate Profit Increase</button>
         </div>
-        <div class="calc-result" id="calc-result" style="display: none;">
-            <h3>Estimated Annual Impact:</h3>
-            <p class="result-highlight" id="result-text">+$0</p>
-            <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 10px;">*Estimates are based on national averages per acre.</p>
+        
+        <div class="calc-result" id="calc-result" style="display: none; background: white; color: var(--dark-color); padding: 30px; border-radius: 12px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+            <h3 style="color: #555; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px;">Your Estimated Extra Income</h3>
+            <p class="result-highlight" id="result-text" style="font-size: 4rem; color: var(--primary-color); margin: 10px 0;">+$0</p>
+            <div style="display: flex; justify-content: space-between; margin-top: 20px; padding-top: 20px; border-top: 1px solid #eee;">
+                <div>
+                    <p style="font-size: 0.8rem; color: #888;">Current Est. Profit</p>
+                    <strong id="current-profit" style="font-size: 1.1rem;">$0</strong>
+                </div>
+                <div>
+                    <p style="font-size: 0.8rem; color: #888;">New Est. Profit</p>
+                    <strong id="new-profit" style="font-size: 1.1rem; color: var(--primary-color);">+$0</strong>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -165,7 +181,7 @@
                 <thead>
                     <tr>
                         <th>Crop</th>
-                        <th>Today's Price (Ksh)</th>
+                        <th>Price (Ksh / 90kg bag)</th>
                         <th>Trend</th>
                     </tr>
                 </thead>

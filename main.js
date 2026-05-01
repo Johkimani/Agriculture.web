@@ -120,44 +120,60 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // 6. ROI Calculator Logic
+    const acreageSlider = document.getElementById('acreage');
+    const acreageValDisplay = document.getElementById('acreage-val');
     const calcBtn = document.getElementById('calculate-btn');
+    
+    if (acreageSlider && acreageValDisplay) {
+        acreageSlider.addEventListener('input', (e) => {
+            acreageValDisplay.innerText = `${e.target.value} Acres`;
+            // Auto calculate on slider move if result is visible
+            if (document.getElementById('calc-result').style.display === 'block') {
+                calcBtn.click();
+            }
+        });
+    }
+
     if (calcBtn) {
         calcBtn.addEventListener('click', () => {
             const acreage = document.getElementById('acreage').value;
             const equipType = document.getElementById('equipment-type').value;
             const resultDiv = document.getElementById('calc-result');
             const resultText = document.getElementById('result-text');
+            const currentProfitEl = document.getElementById('current-profit');
+            const newProfitEl = document.getElementById('new-profit');
 
-            if (!acreage || acreage <= 0) {
-                alert("Please enter a valid farm size in acres.");
-                return;
-            }
-
-            // Simple mock calculation logic based on $500 baseline profit per acre
+            // Baseline profit per acre = $500
             const baselineProfit = acreage * 500;
             let profitIncrease = 0;
 
             if (equipType === 'tractor') {
                 profitIncrease = baselineProfit * 0.15;
             } else if (equipType === 'irrigation') {
-                profitIncrease = (baselineProfit * 0.20) + (acreage * 50); // Plus water savings
+                profitIncrease = (baselineProfit * 0.20) + (acreage * 50); 
             } else if (equipType === 'harvester') {
                 profitIncrease = baselineProfit * 0.10;
             }
 
-            // Show result block
+            const totalNewProfit = baselineProfit + profitIncrease;
+
             resultDiv.style.display = 'block';
+            resultDiv.style.animation = 'slideUp 0.5s ease-out';
             
-            // Animate number inside resultText
+            currentProfitEl.innerText = `$${Math.round(baselineProfit).toLocaleString()}`;
+            newProfitEl.innerText = `$${Math.round(totalNewProfit).toLocaleString()}`;
+
             let start = 0;
-            const duration = 1000; // ms
+            const duration = 1000;
             const interval = 10;
             const step = profitIncrease / (duration / interval);
             
-            const countInterval = setInterval(() => {
+            if(window.roiInterval) clearInterval(window.roiInterval);
+
+            window.roiInterval = setInterval(() => {
                 start += step;
                 if (start >= profitIncrease) {
-                    clearInterval(countInterval);
+                    clearInterval(window.roiInterval);
                     resultText.innerText = `+$${Math.round(profitIncrease).toLocaleString()}`;
                 } else {
                     resultText.innerText = `+$${Math.round(start).toLocaleString()}`;
