@@ -991,3 +991,43 @@ body {
 @keyframes fill {
     100% { box-shadow: inset 0px 0px 0px 30px rgba(76, 175, 80, 0.1); }
 }
+
+[data-theme="dark"] #testimonials {
+    background: #0a0e0a !important;
+    border-color: #222 !important;
+}
+[data-theme="dark"] #testimonials > p {
+    color: #aaa !important;
+}
+[data-theme="dark"] .testimonial-card,
+[data-theme="dark"] .case-study-card {
+    background-color: #1e1e1e !important;
+}
+[data-theme="dark"] .testimonial-card p:not(.testimonial-card p:last-child),
+[data-theme="dark"] .case-study-card p {
+    color: #ccc !important;
+}
+[data-theme="dark"] .case-study-card .dark-override {
+    color: #e0e0e0 !important;
+}
+[data-theme="dark"] .case-study-card div[style*="border-bottom"] {
+    border-color: #444 !important;
+}
+
+/* Impact Bar Responsiveness & Dark Mode */
+@media (max-width: 768px) {
+    .hide-mobile { display: none !important; }
+}
+[data-theme="dark"] .impact-bar {
+    background-color: #1e1e1e !important;
+}
+[data-theme="dark"] .impact-bar p {
+    color: #ccc !important;
+}
+[data-theme="dark"] .farmer-voice-card {
+    background-color: #1e1e1e !important;
+    border-color: #333 !important;
+}
+[data-theme="dark"] .farmer-voice-card p {
+    color: #ccc !important;
+}
