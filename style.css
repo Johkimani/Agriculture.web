@@ -754,3 +754,89 @@ tr:hover {
     .calculator-container { grid-template-columns: 1fr; }
     .hero h1 { font-size: 2.5rem; }
 }
+
+/* Dark Mode Overrides */
+[data-theme="dark"] {
+    --primary-color: #4CAF50;
+    --secondary-color: #2E7D32;
+    --dark-color: #f0f0f0;
+    --light-color: #121212;
+    --text-color: #e0e0e0;
+    --accent-color: #FFD54F;
+}
+
+[data-theme="dark"] body {
+    background-color: var(--light-color);
+}
+
+[data-theme="dark"] .stats-section,
+[data-theme="dark"] .equipment-card,
+[data-theme="dark"] .market-dashboard,
+[data-theme="dark"] .advisor-container,
+[data-theme="dark"] .blog-card,
+[data-theme="dark"] .info-box,
+[data-theme="dark"] .form-container,
+[data-theme="dark"] .finance-container,
+[data-theme="dark"] table,
+[data-theme="dark"] .market-table th,
+[data-theme="dark"] #about,
+[data-theme="dark"] .quiz-container {
+    background-color: #1e1e1e !important;
+    color: var(--text-color) !important;
+    border-color: #333 !important;
+}
+
+[data-theme="dark"] .top-bar {
+    background-color: #0d120d;
+}
+
+[data-theme="dark"] nav {
+    background: rgba(30, 30, 30, 0.95);
+}
+
+[data-theme="dark"] .equipment-info h3,
+[data-theme="dark"] .blog-card h3,
+[data-theme="dark"] .info-box h2,
+[data-theme="dark"] .form-container h2,
+[data-theme="dark"] .market-controls label {
+    color: var(--primary-color) !important;
+}
+
+[data-theme="dark"] .section-title {
+    color: var(--dark-color);
+}
+
+[data-theme="dark"] .crop-recommendation {
+    background-color: #2a2a2a !important;
+}
+
+[data-theme="dark"] #calc-result,
+[data-theme="dark"] #quiz-result {
+    background-color: #2a2a2a !important;
+}
+
+[data-theme="dark"] input, 
+[data-theme="dark"] textarea, 
+[data-theme="dark"] select,
+[data-theme="dark"] .market-select {
+    background-color: #2a2a2a !important;
+    color: #e0e0e0 !important;
+    border-color: #444 !important;
+}
+
+[data-theme="dark"] tr:hover {
+    background-color: #2a2a2a !important;
+}
+
+[data-theme="dark"] .market-table th, 
+[data-theme="dark"] .market-table td {
+    border-bottom: 1px solid #333 !important;
+}
+
+[data-theme="dark"] .goog-te-gadget-simple {
+    background-color: #2a2a2a !important;
+    border: 1px solid #444 !important;
+}
+[data-theme="dark"] .goog-te-gadget-simple .goog-te-menu-value span {
+    color: #e0e0e0 !important;
+}

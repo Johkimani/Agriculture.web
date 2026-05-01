@@ -14,8 +14,9 @@
         <span>🌾 Ministry of Agriculture and Livestock Development</span>
         <span class="hide-mobile">✉️ info@kilimo.go.ke</span>
     </div>
-    <div class="top-bar-right">
-        📞 +254-20-2718870
+    <div class="top-bar-right" style="display: flex; align-items: center; gap: 15px;">
+        <div id="google_translate_element"></div>
+        <span>📞 +254-20-2718870</span>
     </div>
 </header>
 
@@ -29,7 +30,10 @@
         <a href="#about">About</a>
         <a href="#contact" class="cta-button mobile-cta">Contact Us</a>
     </div>
-    <a href="#contact" class="cta-button desktop-cta" style="margin-left: 30px;">Contact Us</a>
+    <div style="display: flex; align-items: center;">
+        <a href="#contact" class="cta-button desktop-cta" style="margin-left: 30px;">Contact Us</a>
+        <button id="theme-toggle" style="background:none; border:none; font-size:1.5rem; cursor:pointer; margin-left:20px;" aria-label="Toggle Dark Mode">🌙</button>
+    </div>
     <div class="hamburger">
         <span></span>
         <span></span>
@@ -310,6 +314,13 @@
 <!-- Scroll to Top Button -->
 <button id="scrollTopBtn" title="Go to top">↑</button>
 
+<!-- Google Translate -->
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'sw,en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <script src="main.js"></script>
 </body>
 </html>
