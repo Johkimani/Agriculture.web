@@ -14,14 +14,21 @@
 </header>
 
 <nav>
-    <a href="test.html" class="logo">AgriTech.</a>
+    <a href="index.html" class="logo">AgriTech.</a>
     <div class="nav-links">
         <a href="#home">Home</a>
         <a href="#equipment">Equipment</a>
         <a href="finance.html">Finance</a>
+        <a href="#blog">Blog</a>
         <a href="#about">About</a>
+        <a href="#contact" class="cta-button mobile-cta">Contact Us</a>
     </div>
-    <a href="#contact" class="cta-button" style="margin-left: 30px;">Contact Us</a>
+    <a href="#contact" class="cta-button desktop-cta" style="margin-left: 30px;">Contact Us</a>
+    <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 </nav>
 
 <section id="home" class="hero" id="slideshow" style="background-image: url('images/hero_bg_1777647714564.png');">
@@ -63,7 +70,6 @@
     <h2 class="section-title">What Our Farmers Say</h2>
     <div class="testimonial-container">
         <div class="testimonial active">
-            <!-- Using existing local images from original directory -->
             <img src="farmer1.jpg" alt="Farmer John" onerror="this.src='https://ui-avatars.com/api/?name=Farmer+John&background=random'">
             <div class="stars">★★★★★</div>
             <p class="quote">"The new high-tech tractor has transformed my farm's efficiency. Highly recommended for any serious operation."</p>
@@ -84,19 +90,69 @@
     </div>
 </section>
 
-<section id="about" class="section">
-    <div class="two-column fade-in">
+<section id="blog" class="section">
+    <h2 class="section-title">Latest Agricultural News</h2>
+    <div class="blog-grid">
+        <div class="blog-card fade-in">
+            <div class="blog-content">
+                <span class="blog-tag">Sustainability</span>
+                <h3>5 Sustainable Farming Techniques You Need to Know</h3>
+                <p>Discover eco-friendly farming methods that increase yield while protecting the environment and ensuring long-term soil health.</p>
+                <a href="#" class="read-more">Read More &rarr;</a>
+            </div>
+        </div>
+        <div class="blog-card fade-in">
+            <div class="blog-content">
+                <span class="blog-tag">Technology</span>
+                <h3>How AI is Revolutionizing Agriculture in 2026</h3>
+                <p>Explore the latest innovations in agricultural technology, from drone scouting to automated harvest systems.</p>
+                <a href="#" class="read-more">Read More &rarr;</a>
+            </div>
+        </div>
+        <div class="blog-card fade-in">
+            <div class="blog-content">
+                <span class="blog-tag">Finance</span>
+                <h3>Navigating Government Grants for Small Farmers</h3>
+                <p>A comprehensive guide on how to apply for the latest agricultural financial support programs and subsidies.</p>
+                <a href="finance.html" class="read-more">Read More &rarr;</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="section" style="background: white; padding-top: 80px; padding-bottom: 80px;">
+    <div class="two-column fade-in" id="contact">
         <div class="info-box">
             <h2>About Our Initiative</h2>
             <p>The Ministry of Agriculture and Livestock Development prioritizes food security, sustainable agricultural practices, farmer support, and innovations in livestock and crop production.</p>
             <p>Our goal is to drive economic growth, empower local farmers, and strengthen the nation’s agricultural sector through state-of-the-art machinery and financial support.</p>
+            <div class="contact-info" style="margin-top: 30px;">
+                <p><strong>📍 Address:</strong> Kilimo House, Cathedral Road, P.O. Box 30028-00100 Nairobi, Kenya</p>
+                <p style="margin-top: 15px;"><strong>📞 Phone:</strong> +254-20-2718870</p>
+                <p style="margin-top: 15px;"><strong>✉️ Email:</strong> info@kilimo.go.ke</p>
+            </div>
         </div>
-        <div class="info-box" id="contact" style="background: var(--primary-color); color: white;">
-            <h2 style="color: white;">Contact Us</h2>
-            <p style="color: #e0e0e0;"><strong>Address:</strong><br>Kilimo House, Cathedral Road<br>P.O. Box 30028-00100<br>Nairobi, Kenya</p>
-            <p style="color: #e0e0e0; margin-top: 15px;"><strong>Phone:</strong><br>+254-20-2718870</p>
-            <p style="color: #e0e0e0; margin-top: 15px;"><strong>Email:</strong><br>info@kilimo.go.ke</p>
-            <p style="color: #e0e0e0; margin-top: 25px;"><em>Monday to Friday, 8am to 5pm</em></p>
+        <div class="form-container">
+            <h2>Send us a Message</h2>
+            <form action="https://formsubmit.co/info@kilimo.go.ke" method="POST" class="contact-form">
+                <!-- FormSubmit configs -->
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="http://127.0.0.1:5500/index.html">
+                
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="john@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="How can we help you today?"></textarea>
+                </div>
+                <button type="submit" class="cta-button submit-btn">Send Message</button>
+            </form>
         </div>
     </div>
 </section>
@@ -105,6 +161,6 @@
     <p>&copy; 2026 | Ministry of Agriculture and Livestock Development</p>
 </footer>
 
-<script src="test.js"></script>
+<script src="main.js"></script>
 </body>
 </html>

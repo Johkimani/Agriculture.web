@@ -1,7 +1,29 @@
-// test.js
+// main.js
 
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. Testimonial Carousel
+    
+    // 1. Mobile Menu Toggle (Hamburger)
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (hamburger) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+    }
+
+    // Close mobile menu when a link is clicked
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (navLinks && navLinks.classList.contains('active')) {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+    });
+
+    // 2. Testimonial Carousel
     const testimonials = document.querySelectorAll('.testimonial');
     let currentTestimonial = 0;
 
@@ -17,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
         setInterval(showNextTestimonial, 5000);
     }
 
-    // 2. Scroll Animation (Intersection Observer)
+    // 3. Scroll Animation (Intersection Observer)
     const fadeElements = document.querySelectorAll('.fade-in');
     
     // Set initial state
@@ -44,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
         observer.observe(element);
     });
 
-    // 3. Smooth scrolling for anchor links
+    // 4. Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const targetId = this.getAttribute('href');
