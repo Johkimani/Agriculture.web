@@ -402,6 +402,83 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // 12. Leasing Modal Logic
+    const leaseModal = document.getElementById('lease-modal');
+    const closeLeaseModal = document.getElementById('close-modal');
+    const leaseNowBtns = document.querySelectorAll('.lease-now-btn');
+    const leaseCheckboxes = document.querySelectorAll('.lease-checkbox');
+    const leaseDaysInput = document.getElementById('lease-days');
+    const leaseTotalEl = document.getElementById('lease-total');
+    const leaseDiscountMsg = document.getElementById('lease-discount-msg');
+
+    function calculateLeaseTotal() {
+        if(!leaseTotalEl) return;
+        let totalPerDay = 0;
+        let checkedCount = 0;
+
+        leaseCheckboxes.forEach(cb => {
+            if (cb.checked) {
+                totalPerDay += parseInt(cb.getAttribute('data-price'));
+                checkedCount++;
+            }
+        });
+
+        let days = parseInt(leaseDaysInput.value) || 1;
+        let subtotal = totalPerDay * days;
+        
+        if (checkedCount >= 2) {
+            subtotal = subtotal * 0.9; // 10% discount
+            leaseDiscountMsg.style.display = 'block';
+        } else {
+            leaseDiscountMsg.style.display = 'none';
+        }
+
+        leaseTotalEl.innerText = `Ksh ${Math.round(subtotal).toLocaleString()}`;
+    }
+
+    if (leaseModal) {
+        // Open Modal and Pre-check item
+        leaseNowBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const equip = btn.getAttribute('data-equipment');
+                
+                // Reset checkboxes
+                leaseCheckboxes.forEach(cb => {
+                    cb.checked = (cb.value === equip);
+                });
+                
+                // Reset days
+                leaseDaysInput.value = 1;
+                
+                // Set today as min date
+                const dateInput = document.getElementById('lease-date');
+                if(dateInput) {
+                    const today = new Date().toISOString().split('T')[0];
+                    dateInput.min = today;
+                    dateInput.value = today;
+                }
+
+                calculateLeaseTotal();
+                leaseModal.style.display = 'block';
+            });
+        });
+
+        // Close Modal
+        closeLeaseModal.addEventListener('click', () => {
+            leaseModal.style.display = 'none';
+        });
+        window.addEventListener('click', (e) => {
+            if (e.target === leaseModal) {
+                leaseModal.style.display = 'none';
+            }
+        });
+
+        // Recalculate on input change
+        leaseCheckboxes.forEach(cb => cb.addEventListener('change', calculateLeaseTotal));
+        leaseDaysInput.addEventListener('input', calculateLeaseTotal);
+    }
+
     // 7. Scroll to Top Button
     const scrollTopBtn = document.getElementById("scrollTopBtn");
 

@@ -105,28 +105,28 @@
         
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
             <div class="lease-card" style="background: white; border-radius: 12px; padding: 20px; text-align: center; border: 1px solid #eee; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
-                <div style="font-size: 3rem; margin-bottom: 10px;">🚜</div>
+                <img src="images/tractor_1777648265150.png" alt="Basic Tractor" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
                 <h4 style="font-size: 1.2rem; margin-bottom: 5px;">Basic Tractor</h4>
                 <p style="color: var(--accent-color); font-weight: bold; font-size: 1.1rem; margin-bottom: 15px;">Ksh 5,500 / Day</p>
                 <p style="font-size: 0.9rem; color: #666; margin-bottom: 20px;">Perfect for tilling up to 10 acres. Includes basic implements.</p>
-                <a href="#contact" class="cta-button" style="display: block; padding: 10px; font-size: 0.95rem;">Lease Now</a>
+                <a href="#lease" class="cta-button lease-now-btn" data-equipment="tractor" style="display: block; padding: 10px; font-size: 0.95rem;">Lease Now</a>
             </div>
             
             <div class="lease-card" style="background: white; border-radius: 12px; padding: 20px; text-align: center; border: 1px solid #eee; box-shadow: 0 4px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden;">
                 <div style="position: absolute; top: 15px; right: -30px; background: var(--accent-color); color: var(--dark-color); font-size: 0.7rem; font-weight: bold; padding: 5px 30px; transform: rotate(45deg);">POPULAR</div>
-                <div style="font-size: 3rem; margin-bottom: 10px;">🌾</div>
+                <img src="images/harvester_1777648510955.png" alt="Combine Harvester" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
                 <h4 style="font-size: 1.2rem; margin-bottom: 5px;">Combine Harvester</h4>
                 <p style="color: var(--accent-color); font-weight: bold; font-size: 1.1rem; margin-bottom: 15px;">Ksh 12,000 / Day</p>
                 <p style="font-size: 0.9rem; color: #666; margin-bottom: 20px;">Fast harvest with minimal grain loss. Best for maize & wheat.</p>
-                <a href="#contact" class="cta-button" style="display: block; padding: 10px; font-size: 0.95rem;">Lease Now</a>
+                <a href="#lease" class="cta-button lease-now-btn" data-equipment="harvester" style="display: block; padding: 10px; font-size: 0.95rem;">Lease Now</a>
             </div>
             
             <div class="lease-card" style="background: white; border-radius: 12px; padding: 20px; text-align: center; border: 1px solid #eee; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
-                <div style="font-size: 3rem; margin-bottom: 10px;">💧</div>
+                <img src="images/pump.png" alt="Portable Water Pump" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
                 <h4 style="font-size: 1.2rem; margin-bottom: 5px;">Portable Water Pump</h4>
                 <p style="color: var(--accent-color); font-weight: bold; font-size: 1.1rem; margin-bottom: 15px;">Ksh 1,500 / Day</p>
                 <p style="font-size: 0.9rem; color: #666; margin-bottom: 20px;">High-pressure diesel pump for small-scale irrigation.</p>
-                <a href="#contact" class="cta-button" style="display: block; padding: 10px; font-size: 0.95rem;">Lease Now</a>
+                <a href="#lease" class="cta-button lease-now-btn" data-equipment="pump" style="display: block; padding: 10px; font-size: 0.95rem;">Lease Now</a>
             </div>
         </div>
     </div>
@@ -336,6 +336,62 @@
 <footer>
     <p>&copy; 2026 | Ministry of Agriculture and Livestock Development</p>
 </footer>
+
+<!-- Leasing Modal -->
+<div id="lease-modal" class="modal">
+    <div class="modal-content fade-in">
+        <span class="close-btn" id="close-modal">&times;</span>
+        <h2 style="color: var(--primary-color); margin-bottom: 20px;">Equipment Leasing Form</h2>
+        <p style="color: #666; margin-bottom: 20px;">Select your equipment and dates. Lease 2 or more items for a 10% discount!</p>
+        
+        <form id="lease-form" onsubmit="event.preventDefault(); alert('Lease request submitted successfully! We will contact you shortly.'); document.getElementById('close-modal').click();">
+            <div class="form-group">
+                <label>Select Equipment</label>
+                <div class="equipment-checkboxes" style="display: flex; flex-direction: column; gap: 10px; margin-top: 10px;">
+                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                        <input type="checkbox" class="lease-checkbox" value="tractor" data-price="5500" style="width: 20px; height: 20px; accent-color: var(--primary-color);"> Basic Tractor (Ksh 5,500/day)
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                        <input type="checkbox" class="lease-checkbox" value="harvester" data-price="12000" style="width: 20px; height: 20px; accent-color: var(--primary-color);"> Combine Harvester (Ksh 12,000/day)
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                        <input type="checkbox" class="lease-checkbox" value="pump" data-price="1500" style="width: 20px; height: 20px; accent-color: var(--primary-color);"> Portable Water Pump (Ksh 1,500/day)
+                    </label>
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 20px; margin-top: 20px; flex-wrap: wrap;">
+                <div class="form-group" style="flex: 1; min-width: 150px;">
+                    <label for="lease-days">Number of Days</label>
+                    <input type="number" id="lease-days" min="1" value="1" required style="width: 100%;">
+                </div>
+                <div class="form-group" style="flex: 1; min-width: 150px;">
+                    <label for="lease-date">Start Date</label>
+                    <input type="date" id="lease-date" required style="width: 100%;">
+                </div>
+            </div>
+
+            <div style="background: rgba(76, 175, 80, 0.1); padding: 15px; border-radius: 8px; margin: 20px 0; border: 1px dashed var(--primary-color);">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-weight: bold; color: var(--dark-color);">Total Estimated Cost:</span>
+                    <span id="lease-total" style="font-size: 1.5rem; font-weight: bold; color: var(--primary-color);">Ksh 0</span>
+                </div>
+                <p id="lease-discount-msg" style="color: var(--accent-color); font-size: 0.9rem; font-weight: bold; margin-top: 5px; display: none;">🎉 10% Multi-Lease Discount Applied!</p>
+            </div>
+
+            <div class="form-group">
+                <label for="lease-name">Your Name</label>
+                <input type="text" id="lease-name" required placeholder="John Doe">
+            </div>
+            <div class="form-group">
+                <label for="lease-phone">Phone Number</label>
+                <input type="tel" id="lease-phone" required placeholder="0712345678">
+            </div>
+
+            <button type="submit" class="cta-button" style="width: 100%; padding: 15px; font-size: 1.1rem; margin-top: 10px;">Submit Lease Request</button>
+        </form>
+    </div>
+</div>
 
 <!-- Scroll to Top Button -->
 <button id="scrollTopBtn" title="Go to top">↑</button>
