@@ -228,6 +228,99 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // 9. "What Should I Plant?" Advisor Logic
+    const advisorData = {
+        highlands: {
+            "mar-may": [
+                { name: "Maize (High Altitude)", icon: "🌽", days: "150-180 Days", soil: "Well-drained loam", desc: "Plant early. Excellent for commercial and subsistence." },
+                { name: "Irish Potatoes", icon: "🥔", days: "90-120 Days", soil: "Loose, well-drained", desc: "High yield potential. Needs regular fungicide application." }
+            ],
+            "oct-dec": [
+                { name: "Beans", icon: "🫘", days: "60-90 Days", soil: "Loam", desc: "Fast-maturing, perfect for short rains." },
+                { name: "Cabbages", icon: "🥬", days: "90-100 Days", soil: "High organic matter", desc: "Good market prices during January/February." }
+            ],
+            "dry": [
+                { name: "Tomatoes (Greenhouse)", icon: "🍅", days: "75-90 Days", soil: "Rich loam", desc: "Requires irrigation/greenhouse, but prices peak." }
+            ]
+        },
+        rift: {
+            "mar-may": [
+                { name: "Wheat", icon: "🌾", days: "120-150 Days", soil: "Deep loam", desc: "Large scale commercial farming. Very profitable." },
+                { name: "Maize (Hybrid)", icon: "🌽", days: "130-150 Days", soil: "Well-drained", desc: "Staple crop. Use certified seeds for high yield." }
+            ],
+            "oct-dec": [
+                { name: "Garden Peas", icon: "🫛", days: "60-70 Days", soil: "Loam", desc: "Excellent cash crop during short rains." }
+            ],
+            "dry": [
+                { name: "Onions", icon: "🧅", days: "120-150 Days", soil: "Sandy loam", desc: "Requires irrigation. Extremely lucrative off-season." }
+            ]
+        },
+        coast: {
+            "mar-may": [
+                { name: "Cassava", icon: "🍠", days: "180-360 Days", soil: "Sandy", desc: "Drought resistant and highly adapted to coastal soils." },
+                { name: "Green Grams (Ndengu)", icon: "🟢", days: "60-70 Days", soil: "Well-drained sandy", desc: "Fast maturing, good price per kg." }
+            ],
+            "oct-dec": [
+                { name: "Cowpeas", icon: "🌱", days: "60-80 Days", soil: "Sandy loam", desc: "Grown for both leaves (mboga) and seeds." }
+            ],
+            "dry": [
+                { name: "Watermelons", icon: "🍉", days: "80-100 Days", soil: "Sandy, well-drained", desc: "Needs irrigation, but thrives in coastal heat." }
+            ]
+        },
+        lake: {
+            "mar-may": [
+                { name: "Sorghum", icon: "🌾", days: "90-120 Days", soil: "Clay loam", desc: "Bird-resistant varieties recommended. Excellent brewer market." },
+                { name: "Rice (Paddy)", icon: "🍚", days: "120-150 Days", soil: "Heavy clay", desc: "Requires flooded conditions. Very high demand." }
+            ],
+            "oct-dec": [
+                { name: "Groundnuts", icon: "🥜", days: "100-120 Days", soil: "Loose sandy loam", desc: "High value crop. Avoid waterlogged soils." }
+            ],
+            "dry": [
+                { name: "Sweet Potatoes", icon: "🍠", days: "90-120 Days", soil: "Sandy loam", desc: "Drought tolerant. Vines can be used for fodder." }
+            ]
+        }
+    };
+
+    const adviseBtn = document.getElementById('advise-btn');
+    const advisorResults = document.getElementById('advisor-results');
+
+    if (adviseBtn) {
+        adviseBtn.addEventListener('click', () => {
+            const region = document.getElementById('advisor-region').value;
+            const season = document.getElementById('advisor-month').value;
+            
+            const recommendations = advisorData[region][season];
+            
+            advisorResults.style.display = 'block';
+            advisorResults.style.animation = 'slideUp 0.5s ease-out';
+            
+            if (!recommendations || recommendations.length === 0) {
+                advisorResults.innerHTML = `<p style="text-align:center; color:#666;">No specific recommendations found. Consult your local agro-vet.</p>`;
+                return;
+            }
+
+            let htmlStr = `<h3 style="margin-bottom:20px; color:var(--primary-color);">Top Recommendations:</h3>`;
+            
+            recommendations.forEach(crop => {
+                htmlStr += `
+                    <div class="crop-recommendation">
+                        <div class="crop-icon">${crop.icon}</div>
+                        <div class="crop-details">
+                            <h3>${crop.name}</h3>
+                            <p>${crop.desc}</p>
+                            <div class="crop-tags">
+                                <span class="crop-tag">⏱ ${crop.days}</span>
+                                <span class="crop-tag">🌱 ${crop.soil}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            advisorResults.innerHTML = htmlStr;
+        });
+    }
+
     // 7. Scroll to Top Button
     const scrollTopBtn = document.getElementById("scrollTopBtn");
 

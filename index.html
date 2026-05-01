@@ -178,6 +178,38 @@
     </div>
 </section>
 
+<section id="advisor" class="section">
+    <h2 class="section-title">"What Should I Plant?" Advisor</h2>
+    <p style="text-align: center; color: #666; margin-top: -40px; margin-bottom: 40px;">Select your region and current month to get expert planting recommendations.</p>
+    
+    <div class="advisor-container fade-in">
+        <div class="advisor-controls">
+            <div class="form-group" style="margin-bottom: 0;">
+                <label for="advisor-region">Region</label>
+                <select id="advisor-region" class="market-select">
+                    <option value="highlands">Central Highlands (e.g., Kiambu, Nyeri)</option>
+                    <option value="rift">Rift Valley (e.g., Nakuru, Eldoret)</option>
+                    <option value="coast">Coastal Region (e.g., Mombasa, Kilifi)</option>
+                    <option value="lake">Lake Basin (e.g., Kisumu, Siaya)</option>
+                </select>
+            </div>
+            <div class="form-group" style="margin-bottom: 0;">
+                <label for="advisor-month">Planting Month</label>
+                <select id="advisor-month" class="market-select">
+                    <option value="mar-may">Long Rains (Mar - May)</option>
+                    <option value="oct-dec">Short Rains (Oct - Dec)</option>
+                    <option value="dry">Dry Season (Jan-Feb / Jun-Sep)</option>
+                </select>
+            </div>
+            <button id="advise-btn" class="cta-button" style="align-self: flex-end; padding: 12px 24px;">Get Advice</button>
+        </div>
+
+        <div id="advisor-results" class="advisor-results" style="display: none;">
+            <!-- JS will populate this -->
+        </div>
+    </div>
+</section>
+
 <section id="blog" class="section">
     <h2 class="section-title">Latest Agricultural News</h2>
     <div class="blog-grid">
