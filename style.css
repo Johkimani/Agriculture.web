@@ -880,3 +880,11 @@ tr:hover {
 body {
     top: 0px !important; 
 }
+
+/* Fix footer in dark mode */
+[data-theme="dark"] footer {
+    background-color: #0d120d !important;
+}
+[data-theme="dark"] footer p {
+    color: #e0e0e0 !important;
+}
