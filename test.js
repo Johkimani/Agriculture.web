@@ -1,20 +1,62 @@
-let slideCurrent = 0;
-const slides = [
-    "pexels-nc-farm-bureau-mark-2886937.jpg",
-    "pexels-nc-farm-bureau-mark-2252584.jpg",
-    "Screenshot 2025-03-21 131246.png"
-];
+// test.js
 
-function moveSlide(direction) {
-    slideCurrent += direction;
+document.addEventListener("DOMContentLoaded", () => {
+    // 1. Testimonial Carousel
+    const testimonials = document.querySelectorAll('.testimonial');
+    let currentTestimonial = 0;
 
-    if (slideCurrent < 0) {
-        slideCurrent = slides.length - 1; // Loop to last slide
-    } else if (slideCurrent >= slides.length) {
-        slideCurrent = 0; // Loop to first slide
+    function showNextTestimonial() {
+        if (testimonials.length === 0) return;
+        
+        testimonials[currentTestimonial].classList.remove('active');
+        currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+        testimonials[currentTestimonial].classList.add('active');
     }
 
-    const slidingBackground = document.querySelector('.sliding-background');
-    slidingBackground.style.backgroundImage = `url(${slides[slideCurrent]})`;
-}
-  
+    if (testimonials.length > 0) {
+        setInterval(showNextTestimonial, 5000);
+    }
+
+    // 2. Scroll Animation (Intersection Observer)
+    const fadeElements = document.querySelectorAll('.fade-in');
+    
+    // Set initial state
+    fadeElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                observer.unobserve(entry.target); // Stop observing once it's visible
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+    });
+
+    fadeElements.forEach(element => {
+        observer.observe(element);
+    });
+
+    // 3. Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                e.preventDefault();
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+});
