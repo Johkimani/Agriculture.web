@@ -252,26 +252,26 @@
 
         <div class="advisor-container fade-in" style="flex: 2; min-width: 300px;">
             <div class="advisor-controls" style="display: flex; flex-wrap: wrap; gap: 15px;">
-                <div class="form-group" style="flex: 1; margin-bottom: 0;">
+                <div class="form-group" style="flex: 1; min-width: 150px; margin-bottom: 0;">
                     <label for="advisor-region">Region</label>
-                    <select id="advisor-region" class="market-select">
+                    <select id="advisor-region" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ccc; font-family: 'Inter', sans-serif; font-size: 1rem;">
                         <option value="highlands">Central Highlands</option>
                         <option value="rift">Rift Valley</option>
                         <option value="coast">Coastal Region</option>
                         <option value="lake">Lake Basin</option>
                     </select>
                 </div>
-                <div class="form-group" style="flex: 1; margin-bottom: 0;">
+                <div class="form-group" style="flex: 1; min-width: 150px; margin-bottom: 0;">
                     <label for="advisor-month">Planting Month</label>
-                    <select id="advisor-month" class="market-select">
+                    <select id="advisor-month" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ccc; font-family: 'Inter', sans-serif; font-size: 1rem;">
                         <option value="mar-may">Long Rains (Mar-May)</option>
                         <option value="oct-dec">Short Rains (Oct-Dec)</option>
                         <option value="dry">Dry Season</option>
                     </select>
                 </div>
-                <div class="form-group" style="flex: 1; margin-bottom: 0;">
+                <div class="form-group" style="flex: 1; min-width: 100px; margin-bottom: 0;">
                     <label for="advisor-acres">Farm Size (Acres)</label>
-                    <input type="number" id="advisor-acres" min="1" value="5" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ccc; font-family: 'Inter', sans-serif;">
+                    <input type="number" id="advisor-acres" min="1" value="5" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ccc; font-family: 'Inter', sans-serif; font-size: 1rem;">
                 </div>
                 <button id="advise-btn" class="cta-button" style="flex: 1; min-width: 150px; padding: 12px 24px; align-self: flex-end;">Get Advice</button>
             </div>
