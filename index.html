@@ -145,6 +145,39 @@
     </div>
 </section>
 
+<section id="market-prices" class="section" style="background-color: var(--light-color);">
+    <h2 class="section-title">Live Market Prices</h2>
+    <p style="text-align: center; color: #666; margin-top: -40px; margin-bottom: 40px;">Stay informed and never get undercut. Real-time wholesale prices per 90kg bag.</p>
+    
+    <div class="market-dashboard fade-in">
+        <div class="market-controls">
+            <label for="market-region">Select Region:</label>
+            <select id="market-region" class="market-select">
+                <option value="nairobi">Nairobi (Muthurwa)</option>
+                <option value="mombasa">Mombasa (Kongowea)</option>
+                <option value="kisumu">Kisumu (Kibuye)</option>
+                <option value="nakuru">Nakuru (Wakulima)</option>
+            </select>
+        </div>
+        
+        <div class="market-table-container">
+            <table class="market-table">
+                <thead>
+                    <tr>
+                        <th>Crop</th>
+                        <th>Today's Price (Ksh)</th>
+                        <th>Trend</th>
+                    </tr>
+                </thead>
+                <tbody id="market-data">
+                    <!-- Data will be injected here by JS -->
+                </tbody>
+            </table>
+        </div>
+        <p style="text-align: right; font-size: 0.85rem; color: #888; margin-top: 10px;">*Updated daily at 06:00 AM EAT</p>
+    </div>
+</section>
+
 <section id="blog" class="section">
     <h2 class="section-title">Latest Agricultural News</h2>
     <div class="blog-grid">

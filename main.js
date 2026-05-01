@@ -166,6 +166,68 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // 8. Live Market Prices Logic
+    const marketData = {
+        nairobi: [
+            { crop: "🌾 Maize (Dry)", price: "3,200", trend: "up", trendIcon: "▲ +50" },
+            { crop: "🥔 Irish Potatoes", price: "4,500", trend: "down", trendIcon: "▼ -200" },
+            { crop: "🍅 Tomatoes", price: "6,800", trend: "stable", trendIcon: "− 0" },
+            { crop: "🥬 Cabbages", price: "2,100", trend: "up", trendIcon: "▲ +100" }
+        ],
+        mombasa: [
+            { crop: "🌾 Maize (Dry)", price: "3,500", trend: "stable", trendIcon: "− 0" },
+            { crop: "🥔 Irish Potatoes", price: "5,000", trend: "up", trendIcon: "▲ +150" },
+            { crop: "🍅 Tomatoes", price: "7,200", trend: "down", trendIcon: "▼ -100" },
+            { crop: "🥬 Cabbages", price: "2,500", trend: "up", trendIcon: "▲ +50" }
+        ],
+        kisumu: [
+            { crop: "🌾 Maize (Dry)", price: "3,000", trend: "down", trendIcon: "▼ -50" },
+            { crop: "🥔 Irish Potatoes", price: "4,200", trend: "stable", trendIcon: "− 0" },
+            { crop: "🍅 Tomatoes", price: "6,000", trend: "up", trendIcon: "▲ +300" },
+            { crop: "🥬 Cabbages", price: "1,900", trend: "down", trendIcon: "▼ -50" }
+        ],
+        nakuru: [
+            { crop: "🌾 Maize (Dry)", price: "2,900", trend: "stable", trendIcon: "− 0" },
+            { crop: "🥔 Irish Potatoes", price: "3,800", trend: "down", trendIcon: "▼ -150" },
+            { crop: "🍅 Tomatoes", price: "5,500", trend: "up", trendIcon: "▲ +200" },
+            { crop: "🥬 Cabbages", price: "1,500", trend: "stable", trendIcon: "− 0" }
+        ]
+    };
+
+    const marketSelect = document.getElementById('market-region');
+    const marketTableBody = document.getElementById('market-data');
+
+    function populateMarketData(region) {
+        if (!marketTableBody) return;
+        marketTableBody.innerHTML = ''; // Clear current
+        
+        const data = marketData[region];
+        data.forEach(item => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td style="font-weight: 600; color: #333;">${item.crop}</td>
+                <td style="font-size: 1.1rem;">Ksh ${item.price}</td>
+                <td class="trend-${item.trend}">${item.trendIcon}</td>
+            `;
+            marketTableBody.appendChild(tr);
+        });
+    }
+
+    if (marketSelect) {
+        // Initialize with default value
+        populateMarketData(marketSelect.value);
+
+        // Update on change
+        marketSelect.addEventListener('change', (e) => {
+            marketTableBody.style.opacity = '0';
+            setTimeout(() => {
+                populateMarketData(e.target.value);
+                marketTableBody.style.opacity = '1';
+                marketTableBody.style.transition = 'opacity 0.3s';
+            }, 200);
+        });
+    }
+
     // 7. Scroll to Top Button
     const scrollTopBtn = document.getElementById("scrollTopBtn");
 
