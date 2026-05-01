@@ -124,9 +124,10 @@
             'crop-diseases': {
                 title: 'How to Prevent Crop Diseases',
                 subtitle: 'Early detection and sustainable prevention strategies.',
+                headerImg: 'https://images.unsplash.com/photo-1599026402096-78b176311655?w=1200&h=600&fit=crop',
                 body: `
                     <p>Crop diseases can wipe out an entire season's hard work in just days. Understanding how to prevent them naturally is the hallmark of a modern, successful farmer.</p>
-                    <img src="https://images.unsplash.com/photo-1599026402096-78b176311655?w=800&h=400&fit=crop" alt="Diseased Leaf Inspection">
+                    <img src="https://images.unsplash.com/photo-1589923188900-85dae523342b?w=800&h=400&fit=crop" alt="Healthy Crops">
                     <h2>1. Soil Health is Foundation</h2>
                     <p>Most diseases start in the soil. By using organic compost and ensuring proper drainage, you create an environment where beneficial microbes outcompete harmful pathogens.</p>
                     <h2>2. Crop Rotation</h2>
@@ -138,6 +139,7 @@
             'rainy-season': {
                 title: 'Best Crops for Rainy Season in Kenya',
                 subtitle: 'Maximize the "Long Rains" (March-May) for high returns.',
+                headerImg: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&h=600&fit=crop',
                 body: `
                     <p>The rainy season is the most critical time for Kenyan agriculture. Choosing the right seed varieties can be the difference between a bumper harvest and a failed season.</p>
                     <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&h=400&fit=crop" alt="Lush Green Farm">
@@ -152,6 +154,7 @@
             'irrigation': {
                 title: 'Modern Irrigation Techniques',
                 subtitle: 'Smarter water usage for year-round profitability.',
+                headerImg: 'images/irrigation.png',
                 body: `
                     <p>In a changing climate, relying solely on rain is risky. Modern irrigation allows you to farm 365 days a year, doubling or even tripling your annual income.</p>
                     <img src="images/irrigation.png" alt="Modern Drip Irrigation">
@@ -166,6 +169,7 @@
             'dairy': {
                 title: 'Maximizing Dairy Yield in Arid Regions',
                 subtitle: 'Sustainable livestock management for dry climates.',
+                headerImg: 'https://images.unsplash.com/photo-1543323330-909249e0004b?w=1200&h=600&fit=crop',
                 body: `
                     <p>Livestock farming in arid regions requires a shift from quantity to quality. Smart management can ensure your cows remain productive even when grass is scarce.</p>
                     <img src="https://images.unsplash.com/photo-1543323330-909249e0004b?w=800&h=400&fit=crop" alt="Cattle in Arid Region">
@@ -188,6 +192,11 @@
         document.getElementById('guide-subtitle').innerText = guide.subtitle;
         document.getElementById('guide-body').innerHTML = guide.body;
         document.title = `${guide.title} - AgriTech Guide`;
+        
+        // Update Header Background
+        if (guide.headerImg) {
+            document.querySelector('.guide-header').style.backgroundImage = `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('${guide.headerImg}')`;
+        }
     </script>
 </body>
 </html>
