@@ -337,6 +337,45 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // 10. Finance Quiz Logic
+    const quizSubmit = document.getElementById('quiz-submit');
+    const quizResult = document.getElementById('quiz-result');
+
+    if (quizSubmit && quizResult) {
+        quizSubmit.addEventListener('click', () => {
+            const size = document.getElementById('quiz-size').value;
+            const organic = document.getElementById('quiz-organic').value;
+            const goal = document.getElementById('quiz-goal').value;
+
+            let recommendation = "";
+            let amount = "";
+
+            if (organic === 'yes') {
+                recommendation = "Organic Farming Incentive";
+                amount = "Up to $10,000 Subsidy";
+            } else if (goal === 'equipment') {
+                recommendation = "Tech Adoption Fund";
+                amount = "Up to 50% Co-financing";
+            } else if (size === 'large' || goal === 'expansion') {
+                recommendation = "Agriculture Loan Assistance";
+                amount = "Low-Interest Loan (Up to $50,000)";
+            } else {
+                recommendation = "Farm Subsidy Grant";
+                amount = "Up to $5,000 Grant";
+            }
+
+            quizResult.style.display = 'block';
+            quizResult.style.animation = 'slideUp 0.4s ease-out';
+            quizResult.innerHTML = `
+                <h3 style="color: var(--dark-color); margin-bottom: 10px;">Great news! You likely qualify for the:</h3>
+                <h2 style="color: var(--primary-color); font-size: 1.8rem; margin-bottom: 5px;">${recommendation}</h2>
+                <p style="font-weight: bold; color: var(--accent-color); margin-bottom: 15px;">${amount}</p>
+                <p style="color: #666; margin-bottom: 20px;">Please prepare your land registration documents and click below to begin the official application process.</p>
+                <a href="mailto:finance@kilimo.go.ke?subject=Application for ${recommendation}" class="cta-button" style="display: inline-block; padding: 10px 20px;">Apply Now via Email</a>
+            `;
+        });
+    }
+
     // 7. Scroll to Top Button
     const scrollTopBtn = document.getElementById("scrollTopBtn");
 
